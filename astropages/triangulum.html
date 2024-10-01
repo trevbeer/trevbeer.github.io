@@ -49,9 +49,17 @@
 									<p>TBD.</p>
 								</header>
 								<div class="image main"><img src="../images/m33(temp).png" alt="" /></div>
-								<p> M33 is a _____ galaxy located approximately ____ light-years away. TBD
+								<p> M33 is a spiral galaxy located approximately 2.73 million light-years away. Aptly named due to its location in the constellation Triangulum, M33 is the third largest member of 
+									our local group of galaxies, behind our own Milky Way and the Andromeda Galaxy, the latter of which it is believed to be gravitationally bound to. A difficult visual target due
+									to its size and diffuse nature, it can often only be observed in dark skies via averted vision. 
 								</p>
 								<h2>Full Aquisition Details</h2>
+
+								<p> Aquisition for this project is ongoing - with the aim of getting at least 6 hours of Luminence data and 2 per RGB channel. This target is a relatviely difficult capture (at least relative
+									to a galaxy such as Andromeda), but very rewarding due to the depth and expanse of its nebulous regions, which stand out as the red clumps. The approximate 1280mm focal length of my setup,
+									coupled with the small sensor on the 533MM makes it such that the entirety cannot be captured in one frame. Thus far, my guiding has hovered around 0.6RMS, just sufficient for my 0.61 arcsec/pixel 
+									image scale.
+								</p>
 
 									<div class="table-wrapper">
 										<table>
@@ -76,7 +84,7 @@
 												</tr>
 												<tr>
 													<td>Filters</td>
-													<td>Antlia LRGB</td>
+													<td>Antlia V-series LRGB</td>
 												</tr>
 												<tr>
 													<td>Guiding</td>
@@ -92,7 +100,7 @@
 												</tr>
 												<tr>
 													<td>Exposure Details</td>
-													<td>L: x x 60s; RGB: x, x, x, x x 120s = ~6 hr 0 min total exposure (thus far)</td>
+													<td>L: 180 x 60s; RGB: 29, 29, 29 x 120s = 5 hr 54 min total exposure (thus far)</td>
 												</tr>
 												<tr>
 													<td>Calibration Frames</td>
@@ -105,6 +113,11 @@
 
 								<h2>Full Processing Details</h2>
 
+								<p> Thus far, I have used a very standard processing workflow based only in free tools. A strategy I may pursue in the future is binning the color data 2x2 to increase the effective SNR, though this strategy
+									is not as beneficial with CMOS sensors relative to CCD. Also, I liked the galaxy having a more "blue" look that it does before color calibration, though the dustier look currently shown is likely more 
+									accurate. As integration is added, I will play with the color balance to optimize color accuracy with the "pretty picture" look I seek.
+								</p>
+
 									<div class="table-wrapper">
 										<table>
 											<thead>
@@ -116,15 +129,21 @@
 											<tbody>
 												<tr>
 													<td>SIRIL</td>
-													<td>TBD</td>
+													<td>Individual Subs: Calibration, Background Extraction, Registration, Stacking (Each Channel) <br\>
+														Stacked L: Background Extraction, Deconvolution, Wavelets, create Starless<br \>
+														Stacked RGB: Background Extraction, Deconvolution, Color Calibration (PCC), create Starless and Starmask<br \>
+														Starless L: Autostretch, Black point, GHS <br \>
+														Starless RGB: Autostretch, Black point, GHS <br \>
+														Starmask RGB: Asin stretch (for color), GHS, saturation<br \>
+														Post Combination LRGB: add starless LRGB from GIMP to starmask with PixelMath (formula: <br \></td>
 												</tr>
 												<tr>
 													<td>GraXpert</td>
-													<td>Denoising</td>
+													<td>L and RGB: Denoising after deconvolution, before stretching</td>
 												</tr>
 												<tr>
 													<td>GIMP</td>
-													<td>TBD</td>
+													<td>Combination of stretched L and RGB using layers, slight levels adjustments</td>
 												</tr>
 											</tbody>
 										</table>
